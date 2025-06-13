@@ -20,4 +20,4 @@ print("goles", jugador["goles"])
 if jugador["valor"] < 55000000 and jugador["goles"] > 25:
     print("El jugador es de " + jugador["nacionalidad"] + " anotó " + str(jugador["goles"]) + " goles")
 else:
-    print("No es o que estamos buscando")
+    print("No es lo que estamos buscando")
