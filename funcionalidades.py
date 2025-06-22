@@ -1,23 +1,35 @@
-import random
+import pandas as pd
 
-# El programa elige un número secreto entre 1 y 100
-numero_secreto = random.randint(1, 100)
+# 'pd' es el alias estándar que toda la comunidad de Python usa para pandas
 
-# Damos la bienvenida al jugador
-print("Bienvenido al juego Número Secreto, donde deberás atinarle al número secreto en el menor número de oportundiades posible!")
+# Imagina los datos de varias empresas que estás analizando para tu Search Fund
+datos_empresas = {
+    'Nombre': ['Empresa Alpha', 'Software Beta', 'Comercial Gamma'],
+    'Industria': ['Manufactura', 'Tecnología', 'Retail'],
+    'Facturacion_Anual_M': [120, 45, 80],
+    'EBITDA_M': [15, 12, 9]
+}
 
-# Pedimos el primer número
-numero = int(input("Elige un número entre 1 y 100: "))
+# Creamos el DataFrame a partir del diccionario
+df_empresas = pd.DataFrame(datos_empresas)
 
-# Se compara el primer número con el número secreto y empieza el bucle // recordar que si ya hay un if, los siguientes son elif
-while numero != numero_secreto:
-    if numero > numero_secreto:
-        print("Uff, te pasaste, elige un nuevo número entre 1 y 100")
-    elif numero < numero_secreto:
-        print("Uff, te quedaste corto, elige un nuevo número entre 1 y 100")
-    
-    # Pedimos el siguiente intento
-    numero = int(input("Elige un nuevo número entre 1 y 100: "))
+print("\n--- Filtrando empresas con Facturación > 90M ---")
 
-print("Lo lograste champ. has ganado")
-    
+## La condición df_empresas['Facturacion_Anual_M'] > 90 crea una serie de True/False.
+## Luego usamos esa serie para filtrar el DataFrame original.
+
+col_facturacion = df_empresas['Facturacion_Anual_M']
+
+empresas_grandes = df_empresas[col_facturacion > 90]
+
+print(empresas_grandes)
+
+##Empresas que sean de la Industria Tecnología
+
+print("\n--- Filtrando empresas de la Industria Tecnología ---")
+
+col_industria =df_empresas['Industria']
+
+empresas_tecnologia = df_empresas[col_industria == "Tecnología"]
+
+print(empresas_tecnologia)
