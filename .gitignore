@@ -1,0 +1,11 @@
+# Ignorar la carpeta del entorno virtual.
+# Contiene cientos de archivos que no son parte de tu código y nunca deben estar en el repositorio.
+venv/
+
+# Ignorar todos los archivos CSV.
+# La regla de oro: el código va en Git, los datos no.
+*.csv
+
+# Ignorar archivos del sistema operativo de Mac.
+# Son archivos basura específicos de tu computadora.
+.DS_Store
